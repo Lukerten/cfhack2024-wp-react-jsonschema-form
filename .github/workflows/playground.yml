@@ -1,9 +1,12 @@
 name: Run Playground Script and Deploy to gh-pages
 
 on:
+  # keep trunk up to date
   push:
     branches:
       - trunk
+  pull_request:
+    types: [synchronize, opened, reopened]
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
