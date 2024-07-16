@@ -53,7 +53,7 @@ jobs:
         mkdir -p "gh-pages/$TARGET_DIR"
         ls -la "dist"
         ls -la "dist/$TARGET_DIR"
-        mv "dist/$TARGET_DIR" "gh-pages/pr/${{ github.head_ref}}"
+        mv "dist/$TARGET_DIR" "gh-pages/$(dirname $TARGET_DIR)"
         ls -la "gh-pages"
         ls -la "gh-pages/$TARGET_DIR"
 
