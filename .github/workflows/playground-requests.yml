@@ -43,7 +43,7 @@ jobs:
       run: |
         FULL_DIR_NAME="gh-pages/pr/${{ github.head_ref}}/${GITHUB_SHA}"
         mkdir -p $FULL_DIR_NAME
-        cp -r dist/* $FULL_DIR_NAME
+        mv "dist/${{ github.head_ref}}" "$FULL_DIR_NAME"
 
     - name: Commit and push changes
       run: |
