@@ -51,9 +51,9 @@ jobs:
     - name: move dist folder
       run: |
         mkdir -p "gh-pages/$TARGET_DIR"
-        ls -la dist
-        ls -la dist/$TARGET_DIR
-        mv "dist/$TARGET_DIR/$GITHUB_SHA" "gh-pages/$TARGET_DIR"
+        ls -la "dist"
+        ls -la "dist/$TARGET_DIR"
+        mv "dist/$TARGET_DIR" "gh-pages/$TARGET_DIR"
         ls -la "gh-pages"
         ls -la "gh-pages/$TARGET_DIR"
 
