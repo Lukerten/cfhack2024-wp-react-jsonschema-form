@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
-  contents: write
+  pull-requests: write
 
 jobs:
   build-playground:
@@ -65,12 +65,31 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const body = '# [![playground-demo](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=wp-playground&message=review%20using%20playground&color=41439a)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/${{ github.head_ref }}/playground.json)';
-          const pr_number = context.payload.pull_request.number;
-          const comment = await github.issues.createComment({
-            issue_number: pr_number,
+          const playgroundURL= `https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/${TARGET_DIR}/playground.json`;
+          const badge = `https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=wp-playground&message=review%20using%20playground&color=41439a`;
+          const comment = `[![${badge}](${badge})](${playgroundURL})`;
+
+          const { data: comments } = await github.issues.listComments({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: body
+            issue_number: context.issue.number,
           });
+
+          const existingComment = comments.find(comment => comment.user.login === 'github-actions[bot]' && comment.body.includes('wp-playground'));
+
+          if (existingComment) {
+            await github.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existingComment.id,
+              body: comment,
+            });
+          } else {
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment,
+            });
+          }
 
