@@ -46,12 +46,15 @@ jobs:
 
     - name: Run Playground Script
       run: ./scripts/playground.sh $TARGET_DIR
+      # this produces a dist/$TARGET_DIR folder. we want to move this to gh-pages/$TARGET_DIR
 
-    - name: Copy dist folder
+    - name: move dist folder
       run: |
         mkdir -p "gh-pages/$TARGET_DIR"
-        mv "dist/$TARGET_DIR/" "gh-pages/$TARGET_DIR"
-        mv "gh-pages/$TARGET_DIR/${GITHUB_SHA}/*" "gh-pages/$TARGET_DIR"
+        mv "dist/$TARGET_DIR" "gh-pages/$TARGET_DIR"
+        ls -la "gh-pages"
+        ls -la "gh-pages/$TARGET_DIR"
+        ls -la "gh-pages/$TARGET_DIR/"
 
     - name: Commit and push changes
       run: |
