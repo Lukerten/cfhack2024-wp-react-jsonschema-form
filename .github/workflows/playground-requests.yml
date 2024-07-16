@@ -4,6 +4,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: write
+
 jobs:
   build-playground:
     runs-on: ubuntu-latest
@@ -36,14 +39,18 @@ jobs:
       run: |
         git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
 
-    - name: Run Playground Script
-      run: ./scripts/playground.sh "${{ github.head_ref}}"
-
-    - name: Copy dist folder to gh-pages/pr/${{ github.head_ref}}/${GITHUB_SHA}
+    - name: define Qualified Path
       run: |
-        FULL_DIR_NAME="gh-pages/pr/${{ github.head_ref}}/${GITHUB_SHA}"
-        mkdir -p $FULL_DIR_NAME
-        cp -r dist/* $FULL_DIR_NAME
+        TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
+        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
+
+    - name: Run Playground Script
+      run: ./scripts/playground.sh $TARGET_DIR
+
+    - name: Copy dist folder
+      run: |
+        mkdir -p $TARGET_DIR
+        mv "dist/$TARGET_DIR" "gh-pages/$TARGET_DIR"
 
     - name: Commit and push changes
       run: |
