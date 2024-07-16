@@ -51,6 +51,7 @@ jobs:
       run: |
         mkdir -p "gh-pages/$TARGET_DIR"
         mv "dist/$TARGET_DIR" "gh-pages/$TARGET_DIR"
+        ls -la gh-pages/$TARGET_DIR
 
     - name: Commit and push changes
       run: |
