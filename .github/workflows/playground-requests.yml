@@ -69,28 +69,11 @@ jobs:
           const badge = `https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=wp-playground&message=review%20using%20playground&color=41439a`;
           const comment = `[![${badge}](${badge})](${playgroundURL})`;
 
-          const { data: comments } = await github.issues.listComments({
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            issue_number: context.issue.number,
+            body: comment
           });
 
-          const existingComment = comments.find(comment => comment.user.login === 'github-actions[bot]' && comment.body.includes('wp-playground'));
-
-          if (existingComment) {
-            # append badge under existing comment
-            await github.issues.updateComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: existingComment.id,
-              body: `${existingComment.body}\n${comment}`,
-            });
-          } else {
-            await github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: comment,
-            });
-          }
 
