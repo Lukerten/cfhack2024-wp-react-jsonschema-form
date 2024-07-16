@@ -51,7 +51,7 @@ jobs:
     - name: move dist folder
       run: |
         mkdir -p "gh-pages/$TARGET_DIR"
-        mv "dist/$TARGET_DIR" $(dirname "gh-pages/$TARGET_DIR"))
+        mv "dist/$TARGET_DIR" $(dirname "gh-pages/$TARGET_DIR")
 
     - name: Commit and push changes
       run: |
