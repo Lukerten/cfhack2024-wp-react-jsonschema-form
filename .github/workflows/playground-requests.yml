@@ -49,7 +49,7 @@ jobs:
 
     - name: Copy dist folder
       run: |
-        mkdir -p $TARGET_DIR
+        mkdir -p "gh-pages/$TARGET_DIR"
         mv "dist/$TARGET_DIR/${GITHUB_SHA}" "gh-pages/$TARGET_DIR"
 
     - name: Commit and push changes
