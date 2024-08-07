@@ -45,6 +45,7 @@ jobs:
     - name: Run Playground Script
       run: |
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
+        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
         ./scripts/playground.sh $TARGET_HOST
 
     - name: Copy dist folder to gh-pages/trunk
@@ -52,7 +53,7 @@ jobs:
         # Setting up the target directory
         BRANCH_NAME=${GITHUB_REF_NAME}
         mkdir -p "gh-pages/${BRANCH_NAME}"
-        cp -r "dist/${BRANCH_NAME}" "gh-pages"
+        cp -r "dist/*" "gh-pages"
         # Adding changes to git
         cd gh-pages
         git add .
