@@ -82,12 +82,14 @@ jobs:
         # please refer th scripts/playground.sh for more details
         # this script will build and zip all Plugins for deployment
         # it will also create a playground for the trunk
-        ./scripts/playground.sh $TARGET_HOST
+        ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
         # Move all Files from dist to gh-pages/trunk and commit the changes
         # HACK: The mv command does not work as expected, so we have to use the dirname command
+        ls -la dist
+
         echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
         mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
 
