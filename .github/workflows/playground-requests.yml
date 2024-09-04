@@ -33,7 +33,7 @@ jobs:
 
     - name: Setting up GITHUB_ENV for later steps
       run: |
-        TARGET_DIR="trunk"
+        TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
         echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
         echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
