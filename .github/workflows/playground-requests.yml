@@ -82,7 +82,7 @@ jobs:
         # please refer th scripts/playground.sh for more details
         # this script will build and zip all Plugins for deployment
         # it will also create a playground for the trunk
-        ./scripts/playground.sh $TARGET_HOST
+        ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
