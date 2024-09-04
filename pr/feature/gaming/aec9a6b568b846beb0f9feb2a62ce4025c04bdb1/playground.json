@@ -1,0 +1,80 @@
+{
+    "steps": [
+        {
+          "step": "login",
+          "username": "admin",
+          "password": "password"
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/rjsf-renderer.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/metabox-block.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/editor-sidebar-plugin.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/settings-page.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/rjsf-attribute-editor-block.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/cpt.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/form-block.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/formbuilder-embedded.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/site-builder-demo.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/jsonschema-interactivity-block.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/rjsf-renderer-playground.zip"
+            }
+        },        {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/Lukerten/cfhack2024-wp-react-jsonschema-form/gh-pages/pr/feature/gaming/aec9a6b568b846beb0f9feb2a62ce4025c04bdb1/custom-datatype.zip"
+            }
+        }    ]
+}
